@@ -5,164 +5,622 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Third"
         mc:Ignorable="d"
-        Title="Grafika komputerowa - Zadanie 3" Height="350" Width="525">
+        Loaded="Window_Loaded"
+        Title="Grafika komputerowa - Zadanie 3" Height="750" Width="1200">
     <Grid>
-        
-        <!-- <ScrollBar Name="hscroll"  -->
-        <!--            DockPanel.Dock="Bottom" -->
-        <!--            Orientation="Horizontal"  -->
-        <!--            Minimum="-180" Maximum="180"  -->
-        <!--            LargeChange="10" SmallChange="1" Value="0" /> -->
-        <!-- <ScrollBar Name="vscroll"  -->
-        <!--            DockPanel.Dock="Right" -->
-        <!--            Orientation="Vertical" -->
-        <!--            Minimum="-180" Maximum="180"  -->
-        <!--            LargeChange="10" SmallChange="1" Value="0" /> -->
-        
-        <Viewport3D Margin="0" Name="viewCube" >
-                    <ModelVisual3D>
-                        <ModelVisual3D.Content>
-                            <Model3DGroup>
-                                <!-- Lights -->
-                                <AmbientLight Color="Gray" />
-                                <DirectionalLight Color="Gray" Direction="1,-2,-3" />
-                                <DirectionalLight Color="Gray" Direction="-1,2,3" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="0.37*" />
+        </Grid.ColumnDefinitions>
 
-                                <!-- Front -->
-                                <GeometryModel3D>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D
-                                            Positions = "-1,-1,1 1,-1,1 1,1,1 -1,1,1"
-                                            TriangleIndices = "0 1 2     2,3,0"
-                                            TextureCoordinates="0,1 1,1 1,0 0,0"
-                                        />
-                                    </GeometryModel3D.Geometry>
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial x:Name="Front">
-                                            <DiffuseMaterial.Brush>
-                                                <ImageBrush/>
-                                            </DiffuseMaterial.Brush>
-                                        </DiffuseMaterial>
-                                    </GeometryModel3D.Material>
-                                </GeometryModel3D>
-                                
-                                <!-- Top -->
-                                <GeometryModel3D>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D
-                                            Positions = "-1,1,1 1,1,1 1,1,-1 -1,1,-1"
-                                            TriangleIndices = "0 1 2     2,3,0"
-                                            TextureCoordinates="0,1 1,1 1,0 0,0"
-                                        />
-                                    </GeometryModel3D.Geometry>
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial x:Name="Top">
-                                            <DiffuseMaterial.Brush>
-                                                <ImageBrush/>
-                                            </DiffuseMaterial.Brush>
-                                        </DiffuseMaterial>
-                                    </GeometryModel3D.Material>
-                                </GeometryModel3D>
-                                
-                                <!-- Right -->
-                                <GeometryModel3D>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D
-                                            Positions = "1,-1,1 1,-1,-1 1,1,-1 1,1,1"
-                                            TriangleIndices = "0 1 2     2,3,0"
-                                            TextureCoordinates="0,1 1,1 1,0 0,0"
-                                        />
-                                    </GeometryModel3D.Geometry>
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial x:Name="Right">
-                                            <DiffuseMaterial.Brush>
-                                                <ImageBrush/>
-                                            </DiffuseMaterial.Brush>
-                                        </DiffuseMaterial>
-                                    </GeometryModel3D.Material>
-                                </GeometryModel3D>
-                                
-                                <!-- Left -->
-                                <GeometryModel3D>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D
-                                            Positions = "-1,-1,-1 -1,-1,1 -1,1,1 -1,1,-1"
-                                            TriangleIndices = "0 1 2     2,3,0"
-                                            TextureCoordinates="0,1 1,1 1,0 0,0"
-                                        />
-                                    </GeometryModel3D.Geometry>
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial x:Name="Left">
-                                            <DiffuseMaterial.Brush>
-                                                <ImageBrush/>
-                                            </DiffuseMaterial.Brush>
-                                        </DiffuseMaterial>
-                                    </GeometryModel3D.Material>
-                                </GeometryModel3D>
-                                
-                                
-                                <!-- Back -->
-                                <GeometryModel3D>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D
-                                            Positions = "1,-1,-1 -1,-1,-1 -1,1,-1 1,1,-1"
-                                            TriangleIndices = "0 1 2     2,3,0"
-                                            TextureCoordinates="0,1 1,1 1,0 0,0"
-                                        />
-                                    </GeometryModel3D.Geometry>
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial x:Name="Back">
-                                            <DiffuseMaterial.Brush>
-                                                <ImageBrush/>
-                                            </DiffuseMaterial.Brush>
-                                        </DiffuseMaterial>
-                                    </GeometryModel3D.Material>
-                                </GeometryModel3D>
-                                
-                                <!-- Bottom -->
-                                <GeometryModel3D>
-                                    <GeometryModel3D.Geometry>
-                                        <MeshGeometry3D
-                                            Positions = "-1,-1,-1 1,-1,-1 1,-1,1 -1,-1,1"
-                                            TriangleIndices = "0 1 2     2,3,0"
-                                            TextureCoordinates="0,1 1,1 1,0 0,0"
-                                        />
-                                    </GeometryModel3D.Geometry>
-                                    <GeometryModel3D.Material>
-                                        <DiffuseMaterial x:Name="Bottom">
-                                            <DiffuseMaterial.Brush>
-                                                <ImageBrush/>
-                                            </DiffuseMaterial.Brush>
-                                        </DiffuseMaterial>
-                                    </GeometryModel3D.Material>
-                                </GeometryModel3D>
-                                
-                            </Model3DGroup>
-                        </ModelVisual3D.Content>
-                    </ModelVisual3D>
+        <Viewport3D Grid.Column="0" Margin="0" Name="viewCube">
+            <ModelVisual3D>
+                <ModelVisual3D.Content>
+                    <Model3DGroup>
+                        <!-- Lights -->
+                        <AmbientLight Color="Gray" />
+                        <DirectionalLight Color="Gray" Direction="1,-2,-3" />
+                        <DirectionalLight Color="Gray" Direction="-1,2,3" />
 
-           <Viewport3D.Camera>
-                        <PerspectiveCamera
-                          Position = "3, 3, 3"
-                          LookDirection = "-1, -1, -1"
-                          UpDirection = "0, 1, 0"
-                          FieldOfView = "60">
-                            <PerspectiveCamera.Transform>
-                                <Transform3DGroup>
-                                    <RotateTransform3D>
-                                        <RotateTransform3D.Rotation>
-                                            <AxisAngleRotation3D x:Name="rot_x" Axis="1,0,0"/>
-                                        </RotateTransform3D.Rotation>
-                                    </RotateTransform3D>
-                                    <RotateTransform3D>
-                                        <RotateTransform3D.Rotation>
-                                            <AxisAngleRotation3D x:Name="rot_z" Axis="0,0,1"/>
-                                        </RotateTransform3D.Rotation>
-                                    </RotateTransform3D>
-                                </Transform3DGroup>
-                            </PerspectiveCamera.Transform>
-                        </PerspectiveCamera>
-                    </Viewport3D.Camera>
-                </Viewport3D>
-        </Grid>
+                        <!-- Front -->
+                        <GeometryModel3D>
+                            <GeometryModel3D.Geometry>
+                                <MeshGeometry3D
+                                    Positions="-1,-1,1 1,-1,1 1,1,1 -1,1,1"
+                                    TriangleIndices="0 1 2     2,3,0"
+                                    TextureCoordinates="0,1 1,1 1,0 0,0" />
+                            </GeometryModel3D.Geometry>
+                            <GeometryModel3D.Material>
+                                <DiffuseMaterial x:Name="Front">
+                                    <DiffuseMaterial.Brush>
+                                        <ImageBrush />
+                                    </DiffuseMaterial.Brush>
+                                </DiffuseMaterial>
+                            </GeometryModel3D.Material>
+                        </GeometryModel3D>
+
+                        <!-- Top -->
+                        <GeometryModel3D>
+                            <GeometryModel3D.Geometry>
+                                <MeshGeometry3D
+                                    Positions="-1,1,1 1,1,1 1,1,-1 -1,1,-1"
+                                    TriangleIndices="0 1 2     2,3,0"
+                                    TextureCoordinates="0,1 1,1 1,0 0,0" />
+                            </GeometryModel3D.Geometry>
+                            <GeometryModel3D.Material>
+                                <DiffuseMaterial x:Name="Top">
+                                    <DiffuseMaterial.Brush>
+                                        <ImageBrush />
+                                    </DiffuseMaterial.Brush>
+                                </DiffuseMaterial>
+                            </GeometryModel3D.Material>
+                        </GeometryModel3D>
+
+                        <!-- Right -->
+                        <GeometryModel3D>
+                            <GeometryModel3D.Geometry>
+                                <MeshGeometry3D
+                                    Positions="1,-1,1 1,-1,-1 1,1,-1 1,1,1"
+                                    TriangleIndices="0 1 2     2,3,0"
+                                    TextureCoordinates="0,1 1,1 1,0 0,0" />
+                            </GeometryModel3D.Geometry>
+                            <GeometryModel3D.Material>
+                                <DiffuseMaterial x:Name="Right">
+                                    <DiffuseMaterial.Brush>
+                                        <ImageBrush />
+                                    </DiffuseMaterial.Brush>
+                                </DiffuseMaterial>
+                            </GeometryModel3D.Material>
+                        </GeometryModel3D>
+
+                        <!-- Left -->
+                        <GeometryModel3D>
+                            <GeometryModel3D.Geometry>
+                                <MeshGeometry3D
+                                    Positions="-1,-1,-1 -1,-1,1 -1,1,1 -1,1,-1"
+                                    TriangleIndices="0 1 2     2,3,0"
+                                    TextureCoordinates="0,1 1,1 1,0 0,0" />
+                            </GeometryModel3D.Geometry>
+                            <GeometryModel3D.Material>
+                                <DiffuseMaterial x:Name="Left">
+                                    <DiffuseMaterial.Brush>
+                                        <ImageBrush />
+                                    </DiffuseMaterial.Brush>
+                                </DiffuseMaterial>
+                            </GeometryModel3D.Material>
+                        </GeometryModel3D>
+
+
+                        <!-- Back -->
+                        <GeometryModel3D>
+                            <GeometryModel3D.Geometry>
+                                <MeshGeometry3D
+                                    Positions="1,-1,-1 -1,-1,-1 -1,1,-1 1,1,-1"
+                                    TriangleIndices="0 1 2     2,3,0"
+                                    TextureCoordinates="0,1 1,1 1,0 0,0" />
+                            </GeometryModel3D.Geometry>
+                            <GeometryModel3D.Material>
+                                <DiffuseMaterial x:Name="Back">
+                                    <DiffuseMaterial.Brush>
+                                        <ImageBrush />
+                                    </DiffuseMaterial.Brush>
+                                </DiffuseMaterial>
+                            </GeometryModel3D.Material>
+                        </GeometryModel3D>
+
+                        <!-- Bottom -->
+                        <GeometryModel3D>
+                            <GeometryModel3D.Geometry>
+                                <MeshGeometry3D
+                                    Positions="-1,-1,-1 1,-1,-1 1,-1,1 -1,-1,1"
+                                    TriangleIndices="0 1 2     2,3,0"
+                                    TextureCoordinates="0,1 1,1 1,0 0,0" />
+                            </GeometryModel3D.Geometry>
+                            <GeometryModel3D.Material>
+                                <DiffuseMaterial x:Name="Bottom">
+                                    <DiffuseMaterial.Brush>
+                                        <ImageBrush />
+                                    </DiffuseMaterial.Brush>
+                                </DiffuseMaterial>
+                            </GeometryModel3D.Material>
+                        </GeometryModel3D>
+
+                    </Model3DGroup>
+                </ModelVisual3D.Content>
+                <ModelVisual3D.Transform>
+                    <Transform3DGroup>
+                        <RotateTransform3D>
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D x:Name="XAxisRotation" Axis="1 0 0" />
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                        <RotateTransform3D>
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D x:Name="YAxisRotation" Axis="0 1 0" />
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                        <RotateTransform3D>
+                            <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D x:Name="ZAxisRotation" Axis="0 0 1" />
+                            </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                    </Transform3DGroup>
+                </ModelVisual3D.Transform>
+            </ModelVisual3D>
+
+            <Viewport3D.Camera>
+                <PerspectiveCamera
+                    Position="3, 3, 3"
+                    LookDirection="-1, -1, -1"
+                    UpDirection="0, 1, 0"
+                    FieldOfView="60">
+                    <PerspectiveCamera.Transform>
+                        <Transform3DGroup>
+                            <RotateTransform3D>
+                                <RotateTransform3D.Rotation>
+                                    <AxisAngleRotation3D x:Name="rot_x" Axis="1,0,0" />
+                                </RotateTransform3D.Rotation>
+                            </RotateTransform3D>
+                            <RotateTransform3D>
+                                <RotateTransform3D.Rotation>
+                                    <AxisAngleRotation3D x:Name="rot_z" Axis="0,0,1" />
+                                </RotateTransform3D.Rotation>
+                            </RotateTransform3D>
+                        </Transform3DGroup>
+                    </PerspectiveCamera.Transform>
+                </PerspectiveCamera>
+            </Viewport3D.Camera>
+        </Viewport3D>
+
+        <GridSplitter
+            Grid.Column="1"
+            Width="4"
+            HorizontalAlignment="Center" />
+
+        <Border Grid.Column="2" Background="White">
+            <StackPanel Margin="8,5,5,5">
+
+                <Border
+                    Margin="0,0,0,5"
+                    BorderBrush="DarkGray"
+                    BorderThickness="1">
+                    <Image
+                        Name="ColorPicker"
+                        MouseDown="ColorPicker_MouseDown"
+                        MouseEnter="ColorPicker_MouseEnter"
+                        MouseLeave="ColorPicker_MouseLeave"
+                        MouseMove="ColorPicker_MouseMove">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Images/RGB.png" />
+                        </Image.Source>
+                    </Image>
+                </Border>
+
+                <Border BorderBrush="DarkGray" BorderThickness="1">
+                    <Rectangle
+                        Name="ActualColor"
+                        Height="20"
+                        Fill="Black" />
+                </Border>
+
+                <Label HorizontalAlignment="Center" FontWeight="Bold">
+                    RGB
+                </Label>
+                <Separator />
+
+                <Grid Name="RGBGrid" Margin="0,8,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        Grid.Column="0"
+                        FontWeight="Bold"
+                        Foreground="Red">
+                        R:
+                    </Label>
+                    <TextBox
+                        Name="Red"
+                        Grid.Column="1"
+                        Padding="1,4"
+                        PreviewTextInput="TextBoxNumberTypeValidation"
+                        TextChanged="Red_TextChanged">
+                        0
+                    </TextBox>
+                    <Label
+                        Grid.Column="2"
+                        FontWeight="Bold"
+                        Foreground="Green">
+                        G:
+                    </Label>
+                    <TextBox
+                        Name="Green"
+                        Grid.Column="3"
+                        Padding="1,4"
+                        PreviewTextInput="TextBoxNumberTypeValidation"
+                        TextChanged="Green_TextChanged">
+                        0
+                    </TextBox>
+                    <Label
+                        Grid.Column="4"
+                        FontWeight="Bold"
+                        Foreground="Blue">
+                        B:
+                    </Label>
+                    <TextBox
+                        Name="Blue"
+                        Grid.Column="5"
+                        Padding="1,4"
+                        PreviewTextInput="TextBoxNumberTypeValidation"
+                        TextChanged="Blue_TextChanged">
+                        0
+                    </TextBox>
+                </Grid>
+
+                <Grid Margin="0,0,0,5" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="0,0,3,0"
+                        FontWeight="Bold">
+                        R:
+                    </Label>
+                    
+                <Slider
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Name="RedSlider"
+                    Margin="0,4,0,0"
+                    AutoToolTipPlacement="TopLeft"
+                    AutoToolTipPrecision="0"
+                    IsSnapToTickEnabled="True"
+                    Maximum="255"
+                    Minimum="0"
+                    TickFrequency="1"
+                    ToolTip="Red"
+                    Value="{Binding ElementName=Red, Mode=TwoWay, Path=Text}" />
+                
+                
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="0,0,3,0"
+                    FontWeight="Bold">
+                    G:
+                </Label>
+                
+                <Slider
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Name="GreenSlider"
+                    Margin="0,4,0,0"
+                    AutoToolTipPlacement="TopLeft"
+                    AutoToolTipPrecision="0"
+                    IsSnapToTickEnabled="True"
+                    Maximum="255"
+                    Minimum="0"
+                    TickFrequency="1"
+                    ToolTip="Green"
+                    Value="{Binding ElementName=Green, Mode=TwoWay, Path=Text}" />
+                
+                
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="0,0,3,0"
+                    FontWeight="Bold">
+                    B:
+                </Label>
+                
+                <Slider
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Name="BlueSlider"
+                    Margin="0,4,0,0"
+                    AutoToolTipPlacement="TopLeft"
+                    AutoToolTipPrecision="0"
+                    IsSnapToTickEnabled="True"
+                    Maximum="255"
+                    Minimum="0"
+                    TickFrequency="1"
+                    ToolTip="Blue"
+                    Value="{Binding ElementName=Blue, Mode=TwoWay, Path=Text}" />
+
+                </Grid>
+                
+                <Label HorizontalAlignment="Center" FontWeight="Bold">
+                    CMYK
+                </Label>
+                <Separator />
+
+                <Grid Name="CMYKGrid" Margin="0,8,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="0,0,0,3"
+                        FontWeight="Bold"
+                        Foreground="Cyan">
+                        C:
+                    </Label>
+                    <TextBox
+                        Name="Cyan"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="0,0,0,3"
+                        Padding="1,4"
+                        PreviewTextInput="TextBoxNumberTypeValidation"
+                        TextChanged="Cyan_TextChanged">
+                        0
+                    </TextBox>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Margin="3,0,0,3"
+                        FontWeight="Bold"
+                        Foreground="Magenta">
+                        M:
+                    </Label>
+                    <TextBox
+                        Name="Magenta"
+                        Grid.Row="0"
+                        Grid.Column="3"
+                        Margin="0,0,0,3"
+                        Padding="1,4"
+                        PreviewTextInput="TextBoxNumberTypeValidation"
+                        TextChanged="Magenta_TextChanged">
+                        0
+                    </TextBox>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontWeight="Bold"
+                        Foreground="Yellow">
+                        Y:
+                    </Label>
+                    <TextBox
+                        Name="Yellow"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Padding="1,4"
+                        PreviewTextInput="TextBoxNumberTypeValidation"
+                        TextChanged="Yellow_TextChanged">
+                        0
+                    </TextBox>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Margin="3,0,0,0"
+                        FontWeight="Bold"
+                        Foreground="Black">
+                        K:
+                    </Label>
+                    <TextBox
+                        Name="Black"
+                        Grid.Row="1"
+                        Grid.Column="3"
+                        Padding="1,4"
+                        PreviewTextInput="TextBoxNumberTypeValidation"
+                        TextChanged="Black_TextChanged">
+                        0
+                    </TextBox>
+                </Grid>
+
+                <Grid Margin="0,0,0,5" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="0,0,3,0"
+                        FontWeight="Bold">
+                        C:
+                    </Label>
+                <Slider
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Name="CyanSlider"
+                    Margin="0,4,0,0"
+                    AutoToolTipPlacement="TopLeft"
+                    AutoToolTipPrecision="0"
+                    IsSnapToTickEnabled="True"
+                    Maximum="100"
+                    Minimum="0"
+                    TickFrequency="1"
+                    ToolTip="Cyan"
+                    Value="{Binding ElementName=Cyan, Mode=TwoWay, Path=Text}" />
+                
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="0,0,3,0"
+                    FontWeight="Bold">
+                    M:
+                </Label>
+                
+                <Slider
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Name="MagentaSlider"
+                    Margin="0,4,0,0"
+                    AutoToolTipPlacement="TopLeft"
+                    AutoToolTipPrecision="0"
+                    IsSnapToTickEnabled="True"
+                    Maximum="100"
+                    Minimum="0"
+                    TickFrequency="1"
+                    ToolTip="Magenta"
+                    Value="{Binding ElementName=Magenta, Mode=TwoWay, Path=Text}" />
+                
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Margin="0,0,3,0"
+                    FontWeight="Bold">
+                    Y:
+                </Label>
+                
+                <Slider
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Name="YellowSlider"
+                    Margin="0,4,0,0"
+                    AutoToolTipPlacement="TopLeft"
+                    AutoToolTipPrecision="0"
+                    IsSnapToTickEnabled="True"
+                    Maximum="100"
+                    Minimum="0"
+                    TickFrequency="1"
+                    ToolTip="Yellow"
+                    Value="{Binding ElementName=Yellow, Mode=TwoWay, Path=Text}" />
+                
+                
+
+                <Label
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Margin="0,0,3,0"
+                    FontWeight="Bold">
+                    K:
+                </Label>
+                
+                <Slider
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Name="BlackSlider"
+                    Margin="0,4,0,0"
+                    AutoToolTipPlacement="TopLeft"
+                    AutoToolTipPrecision="0"
+                    IsSnapToTickEnabled="True"
+                    Maximum="100"
+                    Minimum="0"
+                    TickFrequency="1"
+                    ToolTip="Black"
+                    Value="{Binding ElementName=Black, Mode=TwoWay, Path=Text}" />
+
+                </Grid>
+                
+                <Label HorizontalAlignment="Center" FontWeight="Bold">
+                    Cube
+                </Label>
+                <Separator />
+
+                <Grid Margin="0,0,0,5" VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Margin="0,6,3,0"
+                        FontWeight="Bold">
+                        X:
+                    </Label>
+                    <Slider
+                        Name="XRotationSlider"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Margin="0,10,0,0"
+                        AutoToolTipPlacement="TopLeft"
+                        AutoToolTipPrecision="0"
+                        IsSnapToTickEnabled="True"
+                        Maximum="360"
+                        Minimum="0"
+                        TickFrequency="1"
+                        ToolTip="X Axis Rotation"
+                        Value="{Binding ElementName=XAxisRotation, Path=Angle}" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="0,0,3,0"
+                        FontWeight="Bold">
+                        Y:
+                    </Label>
+                    <Slider
+                        Name="YRotationSlider"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="0,4,0,0"
+                        AutoToolTipPlacement="TopLeft"
+                        AutoToolTipPrecision="0"
+                        IsSnapToTickEnabled="True"
+                        Maximum="360"
+                        Minimum="0"
+                        TickFrequency="1"
+                        ToolTip="Y Axis Rotation"
+                        Value="{Binding ElementName=YAxisRotation, Path=Angle}" />
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Margin="0,0,3,0"
+                        FontWeight="Bold">
+                        Z:
+                    </Label>
+                    <Slider
+                        Name="ZRotationSlider"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        Margin="0,4,0,0"
+                        AutoToolTipPlacement="TopLeft"
+                        AutoToolTipPrecision="0"
+                        IsSnapToTickEnabled="True"
+                        Maximum="360"
+                        Minimum="0"
+                        TickFrequency="1"
+                        ToolTip="Z Axis Rotation"
+                        Value="{Binding ElementName=ZAxisRotation, Path=Angle}" />
+                </Grid>
+
+            </StackPanel>
+        </Border>
+
+    </Grid>
 </Window>
